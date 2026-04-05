@@ -5,4 +5,4 @@ Install yt-dlp python package:
 pip install yt-dlp
 
 Run the script (Windows): 
-py script.py <URL>
+py script.py (URL)
