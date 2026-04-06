@@ -51,6 +51,8 @@ def run_download(url: str):
         opts['postprocessors'] = [{'key': 'FFmpegExtractAudio', 'preferredcodec': 'mp3', 'preferredquality': '192'}]
     else:
         opts['format'] = f'bv*[height<={final_choice}]+ba/b'
+        opts["merge_output_format"] = "mp4"
+        opts["postprocessor_args"] = {"merger": ["-c:v", "copy", "-c:a", "aac"]}
     try:
         downloader = yt_dlp.YoutubeDL(opts)
         downloader.download(url)
